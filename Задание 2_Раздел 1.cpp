@@ -4,8 +4,8 @@ using namespace std;
 
 class Glass {
 
-	double capacity = 0; 	//Переменная, определяющая текущий объем жидкости в стакане
-	double maxCapacity; 	//Переменная, определяющая объем стакана
+	double capacity = 0; 	//Текущий объем жидкости в стакане
+	double maxCapacity; 	//Объем стакана
 
 public:
 
@@ -17,7 +17,7 @@ public:
 		{
 			system("cls");
 			double maxCap;
-			cout << "Введите объем стакана(мл): ";
+			cout << "Введите объем стакана в мл: ";
 			cin >> maxCap;
 
 			if (maxCap > 0)
@@ -27,10 +27,10 @@ public:
 				system("pause");
 				return;
 			}
-			//Иначе, выводим пользователю сообщение об ошибке и цикл продолжается
+
 			else
 			{
-				cout << "\nОбъем стакана не может быть меньше или равен нулю!\n\n";
+				cout << "\nОбъем стакана не может быть <= 0.\n\n";
 				system("pause");
 			}
 		}
@@ -39,12 +39,12 @@ public:
 	void addLiquid()
 	{
 		double liquid;
-		cout << "Введите количество доливаемой жидкости: ";
+		cout << "Введите объем доливаемой жидкости в мл: ";
 		cin >> liquid;
 
 		if (capacity + liquid > maxCapacity)
 		{
-			cout << "\nНевозможно долить такое количество жидкости, так как стакан переполнится!\n\n";
+			cout << "\nНевозможно долить такой объем жидкости, так как стакан переполнится.\n\n";
 			return;
 		}
 
@@ -55,12 +55,12 @@ public:
 	void pourLiquid()
 	{
 		double liquid;
-		cout << "Введите количество наливаемой жидкости: ";
+		cout << "Введите объем наливаемой жидкости в мл: ";
 		cin >> liquid;
 
 		if (capacity - liquid < 0)
 		{
-			cout << "\nВ стакане нет такого количества жидкости!\n\n";
+			cout << "\nВ стакане нет такого объема жидкости!\n\n";
 			return;
 		}
 
@@ -70,7 +70,7 @@ public:
 
 	void showCapacity()
 	{
-		cout << "Текущее количество: " << capacity << "/" << maxCapacity << endl << endl;
+		cout << "Текущий объем: " << capacity << "/" << maxCapacity << endl << endl;
 	}
 };
 
@@ -86,11 +86,11 @@ int main()
 	while (true)
 	{
 		system("cls");
+		cout << "Выберите действие: ";
 		cout << "1.Долить жидкость в стакан\n";
 		cout << "2.Налить жидкость из стакана\n";
-		cout << "3.Определить текущее количество жикости\n\n";
+		cout << "3.Определить текущий объем жидкости\n\n";
 		cout << "0.Выход\n\n";
-		cout << "Выберете действие: ";
 		cin >> choice;
 
 		if (choice == 1)
